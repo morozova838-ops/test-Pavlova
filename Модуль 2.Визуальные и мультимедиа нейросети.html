@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модуль 2. Задания | ИИ-Педагог</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --text-title: #1e293b;
+            --text-sub: #6d28d9;
+            --text-main: #334155;
+            --accent-teal: #0d9488;
+            --bg-prompt: #f1f5f9;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--accent-teal);
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-title);
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--text-main);
+            opacity: 0.8;
+        }
+
+        .task-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-title);
+            font-size: 20px;
+        }
+
+        .points {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text-sub);
+            background-color: #f3e8ff;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .instruction {
+            margin-bottom: 20px;
+        }
+
+        .instruction p {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .prompt-box {
+            background-color: var(--bg-prompt);
+            border-left: 4px solid var(--accent-teal);
+            border-radius: 0 8px 8px 0;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .prompt-title {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--accent-teal);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .prompt-text {
+            font-style: italic;
+            font-size: 14px;
+            color: var(--text-title);
+        }
+
+        .variable {
+            color: var(--text-sub);
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            background-color: white;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--accent-teal);
+            color: white;
+            border-color: var(--accent-teal);
+        }
+
+        .tip-box {
+            font-size: 13px;
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-main);
+            opacity: 0.6;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span class="badge">Модуль 2</span>
+        <h1>Визуальные и мультимедиа нейросети</h1>
+        <p class="subtitle">Практикум по генерации дидактических изображений, иллюстраций и элементов наглядности</p>
+    </header>
+
+    <!-- ЗАДАНИЕ 2.1 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Задание 2.1. Создание комплекта дидактических карточек</h2>
+            <span class="points">25 баллов</span>
+        </div>
+        <div class="instruction">
+            <p><strong>Цель:</strong> Научиться генерировать точные, детализированные и эстетически выдержанные изображения для уроков без нарушения авторских прав.</p>
+            <p><strong>Что нужно сделать:</strong></p>
+            <ul>
+                <li>Откройте мобильное приложение или веб-версию нейросети <strong>Шедеврум</strong> (или <strong>ЯндексART</strong>).</li>
+                <li>Используйте предложенный ниже шаблон промпта, адаптировав его под тему своего предмета. Чтобы серия картинок выглядела цельной, не меняйте параметры стиля в конце запроса.</li>
+                <li>Сгенерируйте минимум 3 карточки (например: 3 архитектурных стиля, 3 вида клеток, 3 физических явления).</li>
+                <li>Скачайте изображения и загрузите их в СДО в формате архива или единого PDF-документа.</li>
+            </ul>
+        </div>
+
+        <div class="prompt-box">
+            <div class="prompt-title">Шаблон промпта для генерации картинок</div>
+            <button class="copy-btn" onclick="copyPrompt('promptModule2_1')">Копировать</button>
+            <p class="prompt-text" id="promptModule2_1">
+                Иллюстрация для школьного учебника. Изолированный объект: <span class="variable">[впишите конкретный объект, например: микроскоп / замок XIV века / молекула воды]</span> на чистом однотонном светлом фоне. Высокая детализация, мягкий свет, академический стиль, понятный для детей, 3D рендеринг, минимализм, профессиональный графический дизайн.
+            </p>
+        </div>
+
+        <div class="tip-box">
+            <strong>💡 Полезный совет методиста:</strong> Избегайте в промптах абстрактных слов («красивый», «невероятный»). Нейросети гораздо лучше понимают конкретные технические параметры: «светлый фон», «высокая детализация», «минимализм».
+        </div>
+    </div>
+
+    <!-- ЗАДАНИЕ 2.2 -->
+    <div class="task-card">
+        <div class="task-header">
+            <h2>Задание 2.2. Проектирование обложки учебного курса или презентации</h2>
+            <span class="points">25 баллов</span>
+        </div>
+        <div class="instruction">
+            <p><strong>Цель:</strong> Научиться использовать метафорическое мышление при работе с генеративным дизайном для создания вовлекающего визуального контента.</p>
+            <p><strong>Что нужно сделать:</strong></p>
+            <ul>
+                <li>Придумайте яркую визуальную метафору для вашего предмета или методического проекта.</li>
+                <li>Сформулируйте запрос на основе шаблона и добейтесь от нейросети качественного графического паттерна или главного изображения для стартового слайда презентации.</li>
+                <li>Прикрепите в СДО получившуюся обложку и напишите краткое пояснение (1-2 предложения), почему именно этот образ вы выбрали для учеников.</li>
+            </ul>
+        </div>
+
+        <div class="prompt-box">
+            <div class="prompt-title">Шаблон промпта для обложки / презентации</div>
+            <button class="copy-btn" onclick="copyPrompt('promptModule2_2')">Копировать</button>
+            <p class="prompt-text" id="promptModule2_2">
+                Современный плоский векторный логотип и концепт обложки для образовательного курса по <span class="variable">[укажите дисциплину, например: геометрии / литературе]</span>. Визуальный образ: <span class="variable">[опишите метафору, например: книга, из которой вырастает дерево / геометрические фигуры в виде футуристического города]</span>. Стиль неоморфизм, яркие неоновые линии, глубокий синий и фиолетовый цвета, цифровое искусство, векторная графика, без текста.
+            </p>
+        </div>
+    </div>
+
+    <p class="footer-note">Шаблоны разработаны с опорой на технические требования отечественных платформ ИИ. Вся поддержка по генерации артов — в нашем Telegram-канале.</p>
+</div>
+
+<script>
+    function copyPrompt(id) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Промпт для генерации успешно скопирован!");
+        }).catch(err => {
+            console.error('Ошибка копирования: ', err);
+        });
+    }
+</script>
+
+</body>
+</html>
