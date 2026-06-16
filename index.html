@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визитка курса: ИИ-Педагог</title>
+    <style>
+        /* Обнуление стилей и базовые настройки */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #2b5b84;
+            --text-dark: #1a3652;
+            --text-muted: #627d98;
+            --accent-blue: #3b82f6;
+            --accent-light: #e1ebf5;
+            --accent-orange: #f4a261;
+            --accent-coral: #e63946;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 20px rgba(43, 91, 132, 0.1);
+            --shadow-lg: 0 20px 40px rgba(0,0,0,0.08);
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Шапка / Герой-секция */
+        .hero {
+            background: linear-gradient(135deg, var(--text-main) 0%, var(--text-dark) 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 60px 40px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--accent-orange);
+            color: var(--text-dark);
+            font-weight: bold;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(244, 162, 97, 0.4);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p.tagline {
+            font-size: 1.2rem;
+            color: var(--accent-light);
+            max-width: 700px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .author-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--text-dark);
+            border: 2px solid white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .author-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            color: #9cb3ca;
+        }
+
+        /* Основной контент: Сетка карточек */
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--text-main);
+            margin: 40px 0 20px 0;
+            padding-left: 12px;
+            border-left: 5px solid var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        /* Стилизация карточек */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(43, 91, 132, 0.05);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Специальная карточка с акцентом дефицита внимания / боли */
+        .card.pain-point {
+            border-left: 4px solid var(--accent-coral);
+        }
+        
+        .card.pain-point h3 {
+            color: var(--accent-coral);
+        }
+
+        /* Информационная панель курса */
+        .course-meta-box {
+            background-color: var(--accent-light);
+            border-radius: var(--radius-md);
+            padding: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Форма регистрации (Glassmorphism эффект) */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(225,235,245,0.5) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-section h2 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .cta-section p {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 14px 20px;
+            border: 2px solid rgba(43, 91, 132, 0.15);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+            background-color: white;
+        }
+
+        .form-input:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+        }
+
+        .btn {
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Футер */
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(43, 91, 132, 0.1);
+            padding-top: 20px;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 20px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .course-meta-box {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .cta-section {
+                padding: 30px 20px;
+            }
+            .form-group {
+                flex-direction: column;
+                width: 100%;
+            }
+            .form-input, .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="hero">
+            <span class="badge">Практический онлайн-курс</span>
+            <h1>ИИ-Педагог: Автоматизация учебной рутины</h1>
+            <p class="tagline">Освободите до 15 часов в неделю для себя и своей семьи. Научитесь использовать искусственный интеллект как легального цифрового соавтора без навыков программирования.</p>
+            
+            <div class="author-meta">
+                <div class="author-avatar">МП</div>
+                <div class="author-info">
+                    <h3>Павлова Мария Варьевна</h3>
+                    <p>Автор курса, эксперт в проектировании образовательных программ</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="course-meta-box">
+            <div class="meta-item">
+                <span class="meta-label">Трудоемкость</span>
+                <span class="meta-value">36 часов (интенсив)</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Формат обучения</span>
+                <span class="meta-value">Онлайн (Асинх. + Живые вебинары)</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Доступ к материалам</span>
+                <span class="meta-value">Пожизненный библиотека промптов</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Контроль знаний</span>
+                <span class="meta-value">БРС (100-балльная система)</span>
+            </div>
+        </div>
+
+        <h2 class="section-title">Актуальность и ключевые дефициты</h2>
+        <div class="grid">
+            <div class="card pain-point">
+                <span class="card-icon">⏳</span>
+                <h3>Воскресная рутина</h3>
+                <p>Вы тратите вечер воскресенья на написание КТП, планов уроков, отчетов и бесконечный поиск дидактических картинок? Пора автоматизировать эти процессы.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🧠</span>
+                <h3>Промпт-Инжиниринг</h3>
+                <p>Курс учит не просто нажимать на кнопки конкретной нейросети, а выстраивать логику запроса. Вы сможете легко переключаться на любую новую ИИ-модель.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🛡️</span>
+                <h3>Защита от списывания</h3>
+                <p>Узнаете, как модифицировать домашние задания школьников, делая их абсолютно устойчивыми к бездумному копированию через ChatGPT.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Чему вы научитесь (Результаты по Блуму)</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="card-icon">📝</span>
+                <h3>Генерация планов и тестов</h3>
+                <p>Освоите формулирование комплексных промптов для российских сервисов (YandexGPT, GigaChat) для мгновенной сборки уроков по ФГОС.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🎨</span>
+                <h3>Визуальные материалы</h3>
+                <p>Научитесь создавать яркие карточки-задания и уникальные иллюстрации в Шедевруме и ЯндексART в едином минималистичном стиле.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">⚖️</span>
+                <h3>Цифровая этика</h3>
+                <p>Внедрите правило «Человек — главный редактор» для жесткого фактчекинга и научитесь открыто маркировать ИИ-контент перед учащимися.</p>
+            </div>
+        </div>
+
+        <section class="cta-section">
+            <h2>Сделайте шаг в образование будущего уже сегодня</h2>
+            <p>Зарегистрируйтесь на диагностику цифровых навыков и получите бесплатный электронный чек-лист «Топ-10 нейросетей, работающих в любой школе РФ».</p>
+            
+            <form class="form-group" onsubmit="event.preventDefault(); alert('Вы успешно зарегистрированы! Чек-лист отправлен на вашу почту.');">
+                <input type="email" class="form-input" placeholder="Введите ваш e-mail" required>
+                <button type="submit" class="btn">Принять участие →</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>© 2026 Онлайн-курс «ИИ-Педагог». Разработано в соответствии с педагогической моделью ADDIE.</p>
+            <p style="font-size: 0.75rem; margin-top: 5px; color: var(--text-muted);">Школа ДПО | Павлова М. В.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
